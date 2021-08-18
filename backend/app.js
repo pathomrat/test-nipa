@@ -1,5 +1,7 @@
 const express = require('express');
 const app = express();
+const bodyParser = require('body-parser');
+
 
 const port = 3001;
 
@@ -10,6 +12,11 @@ mongoose.connect(process.env.MONGO_URL, {
     useNewUrlParser: true,
 });
 mongoose.Promise = global.Promise;
+
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
+app.use(bodyParser.json());
 
 var indexApi = require('./routes/indexRoutes');
 var ticketApi = require('./routes/ticketRoutes');
