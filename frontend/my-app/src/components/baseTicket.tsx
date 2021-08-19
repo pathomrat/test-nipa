@@ -1,27 +1,25 @@
+import { Ticket } from "../types/ticket";
+
 type Props = {
-    title: string;
-    description: string;
-    status: string;
-    email: string;
-    phone: string;
-    lastUpdate?: string;
-    lastCreated?: string;
+    ticket: Ticket
+    onUpdateStatus: (ticket: Ticket, status: string) => void;
 }
 
 const BaseTicket: React.FC<Props> = (props) => {
+    const { title, description, email, phone, updated_date, created_date, status } = props.ticket;
     return (
         <div className="baseTicket">
             <div className="baseTicket--body">
-                <h2>{props.title}</h2>
-                <p className="baseTicket--body__description">{props.description}</p>
-                <p>Email : {props.email} , Phone : {props.phone}</p>
-                <p className="baseTicket--body__timestamp">Created at : {props.lastCreated} , Last updated : {props.lastUpdate}</p>
+                <h2>{title}</h2>
+                <p className="baseTicket--body__description">{description}</p>
+                <p>Email : {email} , Phone : {phone}</p>
+                <p className="baseTicket--body__timestamp">Created at : {created_date} , Last updated : {updated_date}</p>
             </div>
             <div className="baseTicket--footer">
-                <h2>Status : {props.status}</h2>
-                <button className="baseTicket--footer__button">Approve</button>
-                <button className="baseTicket--footer__button" disabled={props.status === 'Approve'}>Resolved</button>
-                <button className="baseTicket--footer__button" disabled={props.status === 'Approve'}>Rejected</button>
+                <h2>Status : {status}</h2>
+                <button className="baseTicket--footer__button" disabled={status === 'Approve' || status === 'Rejected'} onClick={(_) => props.onUpdateStatus(props.ticket, 'Approve')}>Approve</button>
+                <button className="baseTicket--footer__button" disabled={status === 'Approve' || status === 'Resolved'} onClick={(_) => props.onUpdateStatus(props.ticket, 'Resolved')}>Resolved</button>
+                <button className="baseTicket--footer__button" disabled={status === 'Approve' || status === 'Rejected'} onClick={(_) => props.onUpdateStatus(props.ticket, 'Rejected')}>Rejected</button>
             </div>
         </div>
     )

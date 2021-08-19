@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 import BaseTicket from "../components/baseTicket";
 import { Ticket } from "../types/ticket";
 
@@ -13,6 +14,30 @@ const Home = () => {
         })
     }, [])
 
+    const onUpdateStatus = (ticket: Ticket, status: string) => {
+        let tempTicket = ticket;
+        tempTicket.status = status;
+        axios.put(`http://localhost:3001/tickets/update/${ticket._id}`, tempTicket).then(res => {
+            if (res.data.error) {
+                throw new Error(res.data.error.message);
+            }
+            Swal.fire({
+                icon: 'success',
+                title: res.data.success.message,
+            }).then(() => {
+                axios.get("http://localhost:3001/tickets").then((res) => {
+                    setTickets(res.data);
+                })
+            })
+        }).catch(err => {
+            console.log(err)
+            Swal.fire({
+                icon: 'error',
+                title: err.message
+            })
+        })
+    }
+
     return (
         <div className="home">
             <div className="home--heading">
@@ -23,14 +48,9 @@ const Home = () => {
             </div>
             {tickets && tickets.map(ticket =>
                 <BaseTicket
-                    key={ticket.id}
-                    title={ticket.title}
-                    description={ticket.description}
-                    status={ticket.status}
-                    email={ticket.email}
-                    phone={ticket.phone}
-                    lastUpdate={ticket.updated_date}
-                    lastCreated={ticket.created_date}
+                    key={ticket._id}
+                    ticket={ticket}
+                    onUpdateStatus={onUpdateStatus}
                 />)}
         </div>
     );

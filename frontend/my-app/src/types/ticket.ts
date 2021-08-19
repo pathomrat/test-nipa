@@ -1,5 +1,5 @@
 export type Ticket = {
-    id?: string;
+    _id?: string;
     title: string;
     description: string;
     status: string;
