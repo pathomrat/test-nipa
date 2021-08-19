@@ -175,6 +175,36 @@ body {
   margin-top: -0.5rem;
 }
 
+.notFound {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+.notFound--image {
+  margin-bottom: 3rem;
+}
+.notFound--text {
+  cursor: default;
+  color: #fff;
+}
+.notFound--link {
+  cursor: pointer;
+  color: #fff;
+  transition: all 0.2s;
+  text-decoration: none;
+}
+.notFound--link:hover {
+  transform: translateY(-2px);
+  text-decoration: underline;
+}
+.notFound--link:active {
+  transform: translateY(-1px);
+  text-decoration: underline;
+}
+
 .baseTicket {
   margin: 2rem;
   cursor: default;
@@ -198,6 +228,28 @@ body {
   align-items: flex-start;
   justify-content: space-around;
   max-width: 70%;
+}
+.baseTicket--body__title {
+  display: flex;
+  flex-direction: row;
+}
+.baseTicket--body__title button {
+  font: inherit;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  margin: 0 2rem;
+  border: none;
+  box-shadow: 0 0.2rem 0.3rem 0 rgba(0, 0, 0, 0.25);
+  transition: all 0.2s;
+}
+.baseTicket--body__title button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0.4rem 0.4rem 0 rgba(0, 0, 0, 0.5);
+}
+.baseTicket--body__title button:active {
+  transform: translateY(-1px);
+  box-shadow: 0 0.3rem 0.3rem 0 rgba(0, 0, 0, 0.3);
 }
 .baseTicket--body__description {
   overflow: hidden;

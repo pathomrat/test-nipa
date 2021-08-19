@@ -1,0 +1,34 @@
+.notFound {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: $color-white;
+
+    &--image {
+        margin-bottom: 3rem;
+    }
+
+    &--text {
+        cursor: default;
+        color: $color-white;
+    }
+
+    &--link {
+        cursor: pointer;
+        color: $color-white;
+        transition: all 0.2s;
+        text-decoration: none;
+
+        &:hover {
+            transform: translateY(-2px);
+            text-decoration: underline;
+        }
+
+        &:active {
+            transform: translateY(-1px);
+            text-decoration: underline;
+        }
+    }
+}
