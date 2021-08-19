@@ -45,6 +45,13 @@ body {
   justify-content: space-between;
   color: #ed9700;
 }
+@media only screen and (max-width: 37.5em) {
+  .home--heading {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}
 .home--heading__text {
   cursor: default;
 }
@@ -53,6 +60,13 @@ body {
   flex-direction: row;
   align-items: center;
   justify-content: center;
+}
+@media only screen and (max-width: 37.5em) {
+  .home--heading__groupButton {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
 }
 .home--heading__selectInput {
   font: inherit;
@@ -91,6 +105,11 @@ body {
 .home--content {
   display: grid;
   grid-template-columns: 1fr 1fr;
+}
+@media only screen and (max-width: 75em) {
+  .home--content {
+    grid-template-columns: 1fr;
+  }
 }
 .home--content__noData {
   margin: 5rem 0;
@@ -229,28 +248,6 @@ body {
   justify-content: space-around;
   max-width: 70%;
 }
-.baseTicket--body__title {
-  display: flex;
-  flex-direction: row;
-}
-.baseTicket--body__title button {
-  font: inherit;
-  cursor: pointer;
-  border-radius: 0.5rem;
-  padding: 0.5rem 1rem;
-  margin: 0 2rem;
-  border: none;
-  box-shadow: 0 0.2rem 0.3rem 0 rgba(0, 0, 0, 0.25);
-  transition: all 0.2s;
-}
-.baseTicket--body__title button:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 0.4rem 0.4rem 0 rgba(0, 0, 0, 0.5);
-}
-.baseTicket--body__title button:active {
-  transform: translateY(-1px);
-  box-shadow: 0 0.3rem 0.3rem 0 rgba(0, 0, 0, 0.3);
-}
 .baseTicket--body__description {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -269,7 +266,8 @@ body {
   justify-self: flex-start;
 }
 .baseTicket--footer__text {
-  margin-bottom: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.8rem;
   border-bottom: 1.6px solid #000;
 }
 .baseTicket--footer__buttonApprove {

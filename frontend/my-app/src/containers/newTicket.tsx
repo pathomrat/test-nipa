@@ -110,13 +110,13 @@ const NewTicket = () => {
                 <label htmlFor="email">email : </label>
                 <input className="newTicket--form__input" type="email" id="email" onChange={emailChangeHandler} onBlur={emailBlurHandler} value={enteredEmail} />
                 {enteredEmailHasError && (
-                    <p className="newTicket--form__errorText">Please Enter a valid Email</p>
+                    <p className="newTicket--form__errorText">Please Enter a valid Email ( require @ in Email )</p>
                 )}
 
                 <label htmlFor="phone">phone : </label>
                 <input className="newTicket--form__input" type="text" id="phone" onChange={phoneChangeHandler} onBlur={phoneBlurHandler} value={enteredPhone} />
                 {enteredPhoneHasError && (
-                    <p className="newTicket--form__errorText">Please Enter a valid Phone</p>
+                    <p className="newTicket--form__errorText">Please Enter a valid Phone ( require 10 character ) </p>
                 )}
                 <button className="newTicket--form__button" type='submit' disabled={!formIsValid}>SUBMIT</button>
             </form>

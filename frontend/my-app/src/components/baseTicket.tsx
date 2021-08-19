@@ -22,16 +22,13 @@ const BaseTicket: React.FC<Props> = (props) => {
     return (
         <div className="baseTicket">
             <div className="baseTicket--body">
-                <div className="baseTicket--body__title">
-                    <h2>{title}</h2>
-                    <button type='button'>edit</button>
-                </div>
+                <h2>{title}</h2>
                 <p className="baseTicket--body__description">{description}</p>
                 <p>Email : {email} , Phone : {phone}</p>
                 <p className="baseTicket--body__timestamp">Created at : {formatted_create_date} , Last updated : {formatted_updated_date}</p>
             </div>
             <div className="baseTicket--footer">
-                <h3 className="baseTicket--footer__text">Status : {status}</h3>
+                <p className="baseTicket--footer__text">Status : {status}</p>
                 <button className={buttonApproveClassName} disabled={disabledApproveAndRejected} onClick={(_) => props.onUpdateStatus(props.ticket, 'Approve')}>Approve</button>
                 <button className={buttonResolvedClassName} disabled={disabledResolved} onClick={(_) => props.onUpdateStatus(props.ticket, 'Resolved')}>Resolved</button>
                 <button className={buttonRejectedClassName} disabled={disabledApproveAndRejected} onClick={(_) => props.onUpdateStatus(props.ticket, 'Rejected')}>Rejected</button>
