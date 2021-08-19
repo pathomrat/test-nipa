@@ -33,6 +33,8 @@
         background-color: $color-secondary;
         display: flex;
         flex-direction: column;
+        animation-name: moveInBottom;
+        animation-duration: 1s;
 
         &__input {
             font: inherit;
