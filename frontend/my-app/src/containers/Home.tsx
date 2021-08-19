@@ -1,7 +1,18 @@
+import axios from "axios";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import BaseTicket from "../components/baseTicket";
+import { Ticket } from "../types/ticket";
 
 const Home = () => {
+    const [tickets, setTickets] = useState<Ticket[]>([]);
+
+    useEffect(() => {
+        axios.get("http://localhost:3001/tickets").then((res) => {
+            setTickets(res.data);
+        })
+    }, [])
+
     return (
         <div className="home">
             <div className="home--heading">
@@ -10,38 +21,17 @@ const Home = () => {
                     <h3>New Ticket</h3>
                 </Link>
             </div>
-            <BaseTicket
-                title='หัวข้อ'
-                description='รายละเอียดรายละเอียดรายละเอียดรายละเอียดรายละเอียดรายละเอียดรายละเอียดรายละเอียดรายละเอียดรายละเอียดรายละเอียดรายละเอียดรายละเอียดรายละเอียดรายละเอียดรายละเอียดรายละเอียดรายละเอียดรายละเอียดรายละเอียดรายละเอียดรายละเอียดรายละเอียดรายละเอียดรายละเอียดรายละเอียดรายละเอียดรายละเอียดรายละเอียดรายละเอียดรายละเอียดรายละเอียดรายละเอียดรายละเอียดรายละเอียดรายละเอียดรายละเอียดรายละเอียดรายละเอียดรายละเอียดรายละเอียดรายละเอียดรายละเอียด'
-                status='Pending'
-                email='pathomrat97@gmail.com'
-                phone='0875687554'
-                lastUpdate='19/08/2020'
-            />
-            <BaseTicket
-                title='หัวข้อ'
-                description='รายละเอียด'
-                status='Pending'
-                email='pathomrat97@gmail.com'
-                phone='0875687554'
-                lastUpdate='19/08/2020'
-            />
-            <BaseTicket
-                title='หัวข้อ'
-                description='รายละเอียด'
-                status='Pending'
-                email='pathomrat97@gmail.com'
-                phone='0875687554'
-                lastUpdate='19/08/2020'
-            />
-            <BaseTicket
-                title='หัวข้อ'
-                description='รายละเอียด'
-                status='Pending'
-                email='pathomrat97@gmail.com'
-                phone='0875687554'
-                lastUpdate='19/08/2020'
-            />
+            {tickets && tickets.map(ticket =>
+                <BaseTicket
+                    key={ticket.id}
+                    title={ticket.title}
+                    description={ticket.description}
+                    status={ticket.status}
+                    email={ticket.email}
+                    phone={ticket.phone}
+                    lastUpdate={ticket.updated_date}
+                    lastCreated={ticket.created_date}
+                />)}
         </div>
     );
 }

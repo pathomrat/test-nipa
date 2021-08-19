@@ -125,6 +125,10 @@ body {
   transform: translateY(-1px);
   box-shadow: 0 0.3rem 0.3rem 0 rgba(0, 0, 0, 0.6);
 }
+.newTicket--form__errorText {
+  color: #c82033;
+  margin-top: -0.5rem;
+}
 
 .baseTicket {
   margin: 2rem 0;
