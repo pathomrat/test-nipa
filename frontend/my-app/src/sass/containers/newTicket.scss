@@ -29,8 +29,10 @@
 
     &--form {
         border-radius: 0.6rem;
+        margin: 0 auto;
+        width: 60%;
         padding: 3rem;
-        background-color: $color-secondary;
+        background-color: $color-white;
         display: flex;
         flex-direction: column;
         animation-name: moveInBottom;
@@ -44,6 +46,7 @@
             border-radius: 0.6rem;
             outline: none;
             resize: none;
+            border: 2px solid $color-primary;
         }
 
         &__button {

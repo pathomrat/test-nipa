@@ -11,7 +11,7 @@ html {
 
 body {
   color: #000;
-  background-color: #fff;
+  background-color: #263165;
   font-family: "Prompt", sans-serif;
   font-weight: 400;
   font-size: 1.6rem;
@@ -43,7 +43,7 @@ body {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  color: #263165;
+  color: #ed9700;
 }
 .home--heading__text {
   cursor: default;
@@ -72,7 +72,7 @@ body {
   color: inherit;
   background-color: #fff;
   padding: 1rem 3rem;
-  border: 1px solid #ed9700;
+  border: none;
   border-radius: 0.6rem;
   transition: all 0.2s;
   box-shadow: 0 0.2rem 0.3rem 0 rgba(0, 0, 0, 0.25);
@@ -94,6 +94,7 @@ body {
 }
 .home--content__noData {
   margin: 5rem 0;
+  color: #fff;
 }
 
 .newTicket {
@@ -123,8 +124,10 @@ body {
 }
 .newTicket--form {
   border-radius: 0.6rem;
+  margin: 0 auto;
+  width: 60%;
   padding: 3rem;
-  background-color: #ffab0b;
+  background-color: #fff;
   display: flex;
   flex-direction: column;
   animation-name: moveInBottom;
@@ -138,6 +141,7 @@ body {
   border-radius: 0.6rem;
   outline: none;
   resize: none;
+  border: 2px solid #ed9700;
 }
 .newTicket--form__button {
   font: inherit;
@@ -175,7 +179,7 @@ body {
   margin: 2rem;
   cursor: default;
   height: 20rem;
-  border: 2px solid rgba(255, 171, 11, 0.8);
+  border: none;
   background-color: #fff;
   border-radius: 0.6rem;
   padding: 2rem;
