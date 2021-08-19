@@ -1,0 +1,126 @@
+{
+	"info": {
+		"_postman_id": "5397545a-36de-46e4-944a-936fdc73c04a",
+		"name": "test-nipa",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "testConnection",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3001/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAllTickets",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3001/tickets",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"tickets"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getTicketById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3001/tickets/611d50c349b0cad3c42aa2fb",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"tickets",
+						"611d50c349b0cad3c42aa2fb"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createTicket",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\":\"First Ticket\",\n    \"description\":\"Create First Ticket\",\n    \"status\":\"Pending\",\n    \"email\":\"pathomrat97@gmail.com\",\n    \"phone\":\"087568754\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/tickets/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"tickets",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateTicket",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\":\"First Ticket\",\n    \"description\":\"Create First Ticket\",\n    \"status\":\"Resolved\",\n    \"email\":\"pathomrat97@gmail.com\",\n    \"phone\":\"0875687554\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/tickets/update/611d50c349b0cad3c42aa2fb",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"tickets",
+						"update",
+						"611d50c349b0cad3c42aa2fb"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
