@@ -4,8 +4,8 @@ type Props = {
     status: string;
     email: string;
     phone: string;
-    lastUpdate: string;
-    lastCreated: string;
+    lastUpdate?: string;
+    lastCreated?: string;
 }
 
 const BaseTicket: React.FC<Props> = (props) => {

@@ -1,6 +1,9 @@
-import { FormEventHandler, SyntheticEvent, useState } from "react";
+import axios from "axios";
+import { SyntheticEvent } from "react";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 import useInput from "../hooks/useInput";
+import { Ticket } from "../types/ticket";
 
 const NewTicket = () => {
     const {
@@ -50,17 +53,35 @@ const NewTicket = () => {
     const onHandleSubmit = (event: SyntheticEvent) => {
         event.preventDefault();
 
-        console.log({
+        const ticket: Ticket = {
             title: enteredTitle,
             description: enteredDescription,
+            status: 'Pending',
             email: enteredEmail,
-            phone: enteredPhone
-        })
+            phone: enteredPhone,
+            created_date: Date.now().toString(),
+        }
 
-        resetTitleInput();
-        resetDescriptionInput();
-        resetEmailInput();
-        resetPhoneInput();
+        axios.post('http://localhost:3001/tickets/create', ticket).then(res => {
+            if (res.data.error) {
+                throw new Error(res.data.error.message);
+            }
+            Swal.fire({
+                icon: 'success',
+                title: res.data.success.message,
+            }).then(() => {
+                resetTitleInput();
+                resetDescriptionInput();
+                resetEmailInput();
+                resetPhoneInput();
+            })
+        }).catch(err => {
+            console.log(err)
+            Swal.fire({
+                icon: 'error',
+                title: err.message
+            })
+        })
     }
 
 
