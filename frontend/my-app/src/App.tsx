@@ -1,6 +1,7 @@
 import { Route, Switch } from 'react-router-dom';
 import Home from './containers/Home';
 import NewTicket from './containers/newTicket';
+import './style.css';
 
 const App = () => {
   return (
