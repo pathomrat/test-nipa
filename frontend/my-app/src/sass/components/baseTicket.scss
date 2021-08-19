@@ -1,9 +1,9 @@
 .baseTicket {
-    margin: 2rem 0;
+    margin: 2rem;
     cursor: default;
     height: 20rem;
-    border: 3px solid rgba($color-secondary, 0.75);
-    background-color: $color-secondary;
+    border: 2px solid rgba($color-secondary, 0.8);
+    background-color: $color-white;
     border-radius: 0.6rem;
     padding: 2rem;
     box-shadow: 0 0.2rem 0.3rem 0 rgba($color-black, 0.25);
@@ -32,6 +32,7 @@
 
         &__timestamp {
             color: $color-grey;
+            font-size: 1.2rem;
         }
     }
 
@@ -41,25 +42,30 @@
         align-self: flex-start;
         justify-self: flex-start;
 
-        &__button {
-            font: inherit;
-            margin: 0.5rem;
-            cursor: pointer;
-            border-radius: 0.6rem;
-            border: 1px solid rgba($color-secondary, 0.5);
-            background-color: $color-white;
-            box-shadow: 0 0.2rem 0.3rem 0 rgba($color-black, 0.25);
-            transition: all 0.2s;
+        &__text {
+            margin-bottom: 1rem;
+            border-bottom: 1.6px solid $color-black;
+        }
 
-            &:hover {
-                transform: translateY(-2px);
-                box-shadow: 0 0.4rem 0.4rem 0 rgba($color-black, 0.5);
-            }
+        &__buttonApprove {
+            @include buttonUpdateStatus;
+            background-color: $color-approve;
+        }
 
-            &:active {
-                transform: translateY(-1px);
-                box-shadow: 0 0.3rem 0.3rem 0 rgba($color-black, 0.4);
-            }
+        &__buttonResolved {
+            @include buttonUpdateStatus;
+            background-color: $color-resolved;
+        }
+
+        &__buttonRejected {
+            @include buttonUpdateStatus;
+            background-color: $color-rejected;
+        }
+
+        &__buttonDisabled {
+            @include buttonUpdateStatus;
+            cursor: not-allowed;
+            background-color: $color-disabled;
         }
     }
 }

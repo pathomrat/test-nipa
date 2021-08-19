@@ -10,7 +10,7 @@
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
-        color: $color-primary;
+        color: $color-thirdary;
 
         &__text {
             cursor: default;
@@ -39,5 +39,10 @@
                 box-shadow: 0 0.3rem 0.3rem 0 rgba($color-black, 0.6);
             }
         }
+    }
+
+    &--content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
     }
 }

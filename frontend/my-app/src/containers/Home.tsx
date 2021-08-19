@@ -16,6 +16,7 @@ const Home = () => {
 
     const onUpdateStatus = (ticket: Ticket, status: string) => {
         let tempTicket = ticket;
+        tempTicket.updated_date = Date.now().toString();
         tempTicket.status = status;
         axios.put(`http://localhost:3001/tickets/update/${ticket._id}`, tempTicket).then(res => {
             if (res.data.error) {
@@ -46,13 +47,15 @@ const Home = () => {
                     <h3>New Ticket</h3>
                 </Link>
             </div>
-            {tickets && tickets.map(ticket =>
-                <BaseTicket
-                    key={ticket._id}
-                    ticket={ticket}
-                    onUpdateStatus={onUpdateStatus}
-                />)}
-        </div>
+            <div className="home--content">
+                {tickets && tickets.map(ticket =>
+                    <BaseTicket
+                        key={ticket._id}
+                        ticket={ticket}
+                        onUpdateStatus={onUpdateStatus}
+                    />)}
+            </div>
+        </div >
     );
 }
 
