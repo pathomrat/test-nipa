@@ -4,7 +4,10 @@ const Ticket = require('../models/ticketModel');
 
 // GET TICKETS
 router.get('/', (req, res) => {
-    Ticket.find().exec((err, data) => {
+    Ticket.find().sort({
+        status: 1,
+        updated_date: 1
+    }).exec((err, data) => {
         if (err) {
             return res.send({
                 error: {
