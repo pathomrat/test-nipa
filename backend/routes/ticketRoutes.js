@@ -43,7 +43,7 @@ router.post('/create', (req, res) => {
         }
         res.status(200).send({
             success: {
-                message: "Created user successfully"
+                message: "Created Ticket successfully"
             }
         })
     })
@@ -61,7 +61,7 @@ router.put('/update/:_id', (req, res) => {
         }
         res.status(200).send({
             success: {
-                message: "Updated user successfully"
+                message: "Updated Ticket successfully"
             }
         })
     })
