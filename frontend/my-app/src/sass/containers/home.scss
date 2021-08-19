@@ -16,6 +16,28 @@
             cursor: default;
         }
 
+        &__groupButton {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+        }
+
+        &__selectInput {
+            font: inherit;
+            display: flex;
+            height: 3rem;
+            margin: 0 3rem;
+
+            input {
+                margin: 0 1rem;
+                padding: 1rem;
+                outline: none;
+                border: 1px solid $color-black;
+                border-radius: 0.6rem;
+            }
+        }
+
         &__link {
             cursor: pointer;
             color: inherit;
@@ -44,5 +66,9 @@
     &--content {
         display: grid;
         grid-template-columns: 1fr 1fr;
+
+        &__noData {
+            margin: 5rem 0;
+        }
     }
 }

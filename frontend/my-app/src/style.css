@@ -48,6 +48,25 @@ body {
 .home--heading__text {
   cursor: default;
 }
+.home--heading__groupButton {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.home--heading__selectInput {
+  font: inherit;
+  display: flex;
+  height: 3rem;
+  margin: 0 3rem;
+}
+.home--heading__selectInput input {
+  margin: 0 1rem;
+  padding: 1rem;
+  outline: none;
+  border: 1px solid #000;
+  border-radius: 0.6rem;
+}
 .home--heading__link {
   cursor: pointer;
   color: inherit;
@@ -72,6 +91,9 @@ body {
 .home--content {
   display: grid;
   grid-template-columns: 1fr 1fr;
+}
+.home--content__noData {
+  margin: 5rem 0;
 }
 
 .newTicket {
